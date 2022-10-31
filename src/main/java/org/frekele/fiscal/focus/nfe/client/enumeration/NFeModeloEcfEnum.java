@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeModeloEcfEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 2B - Cupom Fiscal emitido por máquina registradora (não ECF).
      */
     CUPOM_FISCAL_EMITIDO_POR_MAQUINA_REGISTRADORA_NAO_ECF("2B", "Cupom Fiscal emitido por máquina registradora (não ECF)"),

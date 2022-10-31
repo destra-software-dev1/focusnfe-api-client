@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeIcmsOrigemEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 0 - Nacional.
      */
     NACIONAL("0", "Nacional"),

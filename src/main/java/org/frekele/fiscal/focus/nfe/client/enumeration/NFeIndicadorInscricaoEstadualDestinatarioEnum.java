@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeIndicadorInscricaoEstadualDestinatarioEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 1 - Contribuinte ICMS (informar a IE do destinatário).
      */
     CONTRIBUINTE("1", "Contribuinte ICMS (informar a IE do destinatário)"),

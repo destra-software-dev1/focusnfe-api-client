@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeVeiculoTipoOperacaoEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 1 - Venda concessionária.
      */
     VENDA_CONCESSIONARIA("1", "Venda concessionária"),

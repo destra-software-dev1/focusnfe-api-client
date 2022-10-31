@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeIpiSituacaoTributariaEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 00 - Entrada com recuperação de crédito.
      */
     ENTRADA_COM_RECUPERACAO_DE_CREDITO("00", "Entrada com recuperação de crédito"),

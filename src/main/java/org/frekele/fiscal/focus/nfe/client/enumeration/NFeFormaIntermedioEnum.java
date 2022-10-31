@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeFormaIntermedioEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 1 - Importação por conta própria, (Valor Padrão.
      */
     IMPORTACAO_POR_CONTA_PROPRIA("1", "Importação por conta própria"),

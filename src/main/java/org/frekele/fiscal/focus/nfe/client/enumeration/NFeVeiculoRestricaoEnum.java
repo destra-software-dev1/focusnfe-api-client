@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeVeiculoRestricaoEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 0 - Não há.
      */
     NAO_HA("0", "Não há"),

@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeLocalDestinoEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 1 - Operação interna.
      */
     OPERACAO_INTERNA("1", "Operação interna"),

@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeVeiculoVinEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * R - Remarcado.
      */
     REMARCADO("R", "Remarcado"),

@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeIcmsMotivoDesoneracaoEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 1 - Táxi.
      */
     TAXI("1", "Táxi"),

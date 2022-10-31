@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeTipoIntegracaoEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 1 - Pagamento integrado com o sistema de automação da empresa (Ex.: equipamento TEF, Comércio Eletrônico) - Obrigatorio informar cnpj_credenciadora e numero_autorizacao.
      */
     PAGAMENTO_INTEGRADO_COM_SISTEMA_DE_AUTOMACAO("1", "Pagamento integrado com o sistema de automação da empresa (Ex.: equipamento TEF, Comércio Eletrônico) - Obrigatorio informar cnpj_credenciadora e numero_autorizacao"),

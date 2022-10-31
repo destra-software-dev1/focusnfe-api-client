@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeIcmsModalidadeBaseCalculoEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 0 - Margem de valor agregado (%).
      */
     MARGEM_DE_VALOR_AGREGADO("0", "Margem de valor agregado (%)"),

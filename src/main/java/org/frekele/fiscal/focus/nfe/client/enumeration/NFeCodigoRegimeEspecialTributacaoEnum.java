@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeCodigoRegimeEspecialTributacaoEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 1 - Microempresa Municipal.
      */
     MICROEMPRESA_MUNICIPAL("1", "Microempresa Municipal"),

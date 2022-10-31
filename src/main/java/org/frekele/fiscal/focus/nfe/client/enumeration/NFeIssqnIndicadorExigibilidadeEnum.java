@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeIssqnIndicadorExigibilidadeEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 1 - Exigível, (Valor Padrão).
      */
     EXIGIVEL("1", "Exigível"),

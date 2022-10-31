@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeIcmsModalidadeBaseCalculoStEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 0 - Preço tabelado ou máximo sugerido.
      */
     PRECO_TABELADO_OU_MAXIMO_SUGERIDO("0", "Preço tabelado ou máximo sugerido"),

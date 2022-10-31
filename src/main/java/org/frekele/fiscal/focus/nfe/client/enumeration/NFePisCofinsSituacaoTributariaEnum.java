@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFePisCofinsSituacaoTributariaEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 01 - Operação tributável: base de cálculo = valor da operação (alíquota normal – cumulativo/não cumulativo).
      */
     OPERACAO_TRIBUTAVEL_BASE_CALCULO_VALOR_OPERACAO_ALIQUOTA_NORMAL_MENOS_CUMULATIVA_NAO_CUMULATIVA("01", "Operação tributável: base de cálculo = valor da operação (alíquota normal – cumulativo/não cumulativo)"),

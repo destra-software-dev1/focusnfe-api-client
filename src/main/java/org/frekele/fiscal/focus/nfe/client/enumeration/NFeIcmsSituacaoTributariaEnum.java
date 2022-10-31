@@ -19,6 +19,10 @@ import java.util.List;
 public enum NFeIcmsSituacaoTributariaEnum {
 
     /**
+     * 999999999 - Não aplicavel.
+     */
+    NAO_APLICAVEL("999999999", "Não aplicavel"),
+    /**
      * 00 - Tributada integralmente.
      */
     TRIBUTADA_INTEGRALMENTE("00", "Tributada integralmente"),
