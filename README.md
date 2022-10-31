@@ -24,7 +24,7 @@ Built-based on the documentation: [https://focusnfe.com.br/doc/](https://focusnf
 <dependency>
     <groupId>org.frekele.fiscal</groupId>
     <artifactId>focusnfe-api-client</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
 </dependency>
 ```
 
