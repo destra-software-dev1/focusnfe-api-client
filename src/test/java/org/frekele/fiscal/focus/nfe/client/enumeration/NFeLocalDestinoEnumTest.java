@@ -38,7 +38,8 @@ public class NFeLocalDestinoEnumTest {
     public void testGetAll() throws Exception {
         List<NFeLocalDestinoEnum> listAll = NFeLocalDestinoEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 3);
+        assertEquals(listAll.size(), 4);
+        assertTrue(listAll.contains(NFeLocalDestinoEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeLocalDestinoEnum.OPERACAO_INTERNA));
         assertTrue(listAll.contains(NFeLocalDestinoEnum.OPERACAO_INTERESTADUAL));
         assertTrue(listAll.contains(NFeLocalDestinoEnum.OPERACAO_EXTERIOR));

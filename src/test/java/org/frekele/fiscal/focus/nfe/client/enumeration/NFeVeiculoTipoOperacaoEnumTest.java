@@ -40,7 +40,8 @@ public class NFeVeiculoTipoOperacaoEnumTest {
     public void testGetAll() throws Exception {
         List<NFeVeiculoTipoOperacaoEnum> listAll = NFeVeiculoTipoOperacaoEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 4);
+        assertEquals(listAll.size(), 5);
+        assertTrue(listAll.contains(NFeVeiculoTipoOperacaoEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeVeiculoTipoOperacaoEnum.VENDA_CONCESSIONARIA));
         assertTrue(listAll.contains(NFeVeiculoTipoOperacaoEnum.FATURAMENTO_DIRETO));
         assertTrue(listAll.contains(NFeVeiculoTipoOperacaoEnum.VENDA_DIRETA));

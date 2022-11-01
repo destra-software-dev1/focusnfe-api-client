@@ -54,7 +54,8 @@ public class NFeIcmsMotivoDesoneracaoEnumTest {
     public void testGetAll() throws Exception {
         List<NFeIcmsMotivoDesoneracaoEnum> listAll = NFeIcmsMotivoDesoneracaoEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 11);
+        assertEquals(listAll.size(), 12);
+        assertTrue(listAll.contains(NFeIcmsMotivoDesoneracaoEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeIcmsMotivoDesoneracaoEnum.TAXI));
         assertTrue(listAll.contains(NFeIcmsMotivoDesoneracaoEnum.PRODUTOR_AGROPECUARIO));
         assertTrue(listAll.contains(NFeIcmsMotivoDesoneracaoEnum.FROTISTA_LOCADORA));

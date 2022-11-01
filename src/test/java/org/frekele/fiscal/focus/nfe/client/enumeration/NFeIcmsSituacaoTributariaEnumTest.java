@@ -74,7 +74,8 @@ public class NFeIcmsSituacaoTributariaEnumTest {
     public void testGetAll() throws Exception {
         List<NFeIcmsSituacaoTributariaEnum> listAll = NFeIcmsSituacaoTributariaEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 21);
+        assertEquals(listAll.size(), 22);
+        assertTrue(listAll.contains(NFeIcmsSituacaoTributariaEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeIcmsSituacaoTributariaEnum.TRIBUTADA_INTEGRALMENTE));
         assertTrue(listAll.contains(NFeIcmsSituacaoTributariaEnum.TRIBUTADA_E_COM_COBRANCA_ICMS_POR_ST));
         assertTrue(listAll.contains(NFeIcmsSituacaoTributariaEnum.TRIBUTADA_COM_REDUCAO_BASE_CALCULO));

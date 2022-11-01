@@ -44,7 +44,8 @@ public class NFeIcmsModalidadeBaseCalculoStEnumTest {
     public void testGetAll() throws Exception {
         List<NFeIcmsModalidadeBaseCalculoStEnum> listAll = NFeIcmsModalidadeBaseCalculoStEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 6);
+        assertEquals(listAll.size(), 7);
+        assertTrue(listAll.contains(NFeIcmsModalidadeBaseCalculoStEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeIcmsModalidadeBaseCalculoStEnum.PRECO_TABELADO_OU_MAXIMO_SUGERIDO));
         assertTrue(listAll.contains(NFeIcmsModalidadeBaseCalculoStEnum.LISTA_NEGATIVA));
         assertTrue(listAll.contains(NFeIcmsModalidadeBaseCalculoStEnum.LISTA_POSITIVA));

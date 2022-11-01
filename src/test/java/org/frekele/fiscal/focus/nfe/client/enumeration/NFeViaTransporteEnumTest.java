@@ -56,7 +56,8 @@ public class NFeViaTransporteEnumTest {
     public void testGetAll() throws Exception {
         List<NFeViaTransporteEnum> listAll = NFeViaTransporteEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 12);
+        assertEquals(listAll.size(), 13);
+        assertTrue(listAll.contains(NFeViaTransporteEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeViaTransporteEnum.MARITIMA));
         assertTrue(listAll.contains(NFeViaTransporteEnum.FLUVIAL));
         assertTrue(listAll.contains(NFeViaTransporteEnum.LACUSTRE));

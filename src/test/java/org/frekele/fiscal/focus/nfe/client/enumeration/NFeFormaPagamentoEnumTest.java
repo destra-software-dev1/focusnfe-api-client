@@ -58,7 +58,8 @@ public class NFeFormaPagamentoEnumTest {
     public void testGetAll() throws Exception {
         List<NFeFormaPagamentoEnum> listAll = NFeFormaPagamentoEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 13);
+        assertEquals(listAll.size(), 14);
+        assertTrue(listAll.contains(NFeFormaPagamentoEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeFormaPagamentoEnum.DINHEIRO));
         assertTrue(listAll.contains(NFeFormaPagamentoEnum.CHEQUE));
         assertTrue(listAll.contains(NFeFormaPagamentoEnum.CARTAO_DE_CREDITO));

@@ -52,7 +52,8 @@ public class NFeBandeiraOperadoraEnumTest {
     public void testGetAll() throws Exception {
         List<NFeBandeiraOperadoraEnum> listAll = NFeBandeiraOperadoraEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 10);
+        assertEquals(listAll.size(), 11);
+        assertTrue(listAll.contains(NFeBandeiraOperadoraEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeBandeiraOperadoraEnum.VISA));
         assertTrue(listAll.contains(NFeBandeiraOperadoraEnum.MASTERCARD));
         assertTrue(listAll.contains(NFeBandeiraOperadoraEnum.AMERICAN_EXPRESS));

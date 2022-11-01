@@ -44,7 +44,8 @@ public class NFeVeiculoRestricaoEnumTest {
     public void testGetAll() throws Exception {
         List<NFeVeiculoRestricaoEnum> listAll = NFeVeiculoRestricaoEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 6);
+        assertEquals(listAll.size(), 7);
+        assertTrue(listAll.contains(NFeVeiculoRestricaoEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeVeiculoRestricaoEnum.NAO_HA));
         assertTrue(listAll.contains(NFeVeiculoRestricaoEnum.ALIENACAO_FIDUCIARIA));
         assertTrue(listAll.contains(NFeVeiculoRestricaoEnum.ARRENDAMENTO_MERCANTIL));

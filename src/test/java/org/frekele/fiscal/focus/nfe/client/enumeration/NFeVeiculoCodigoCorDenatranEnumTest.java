@@ -64,7 +64,8 @@ public class NFeVeiculoCodigoCorDenatranEnumTest {
     public void testGetAll() throws Exception {
         List<NFeVeiculoCodigoCorDenatranEnum> listAll = NFeVeiculoCodigoCorDenatranEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 16);
+        assertEquals(listAll.size(), 17);
+        assertTrue(listAll.contains(NFeVeiculoCodigoCorDenatranEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeVeiculoCodigoCorDenatranEnum.AMARELO));
         assertTrue(listAll.contains(NFeVeiculoCodigoCorDenatranEnum.AZUL));
         assertTrue(listAll.contains(NFeVeiculoCodigoCorDenatranEnum.BEGE));

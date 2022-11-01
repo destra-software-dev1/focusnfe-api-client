@@ -38,7 +38,8 @@ public class NFeRegimeTributarioEmitenteEnumTest {
     public void testGetAll() throws Exception {
         List<NFeRegimeTributarioEmitenteEnum> listAll = NFeRegimeTributarioEmitenteEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 3);
+        assertEquals(listAll.size(), 4);
+        assertTrue(listAll.contains(NFeRegimeTributarioEmitenteEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeRegimeTributarioEmitenteEnum.SIMPLES_NACIONAL));
         assertTrue(listAll.contains(NFeRegimeTributarioEmitenteEnum.SIMPLES_NACIONAL_EXCETO_SUBLIMITE_RECEITA_BRUTA));
         assertTrue(listAll.contains(NFeRegimeTributarioEmitenteEnum.REGIME_NORMAL));

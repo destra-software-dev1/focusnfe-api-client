@@ -38,7 +38,8 @@ public class NFeIndicadorInscricaoEstadualDestinatarioEnumTest {
     public void testGetAll() throws Exception {
         List<NFeIndicadorInscricaoEstadualDestinatarioEnum> listAll = NFeIndicadorInscricaoEstadualDestinatarioEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 3);
+        assertEquals(listAll.size(), 4);
+        assertTrue(listAll.contains(NFeIndicadorInscricaoEstadualDestinatarioEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeIndicadorInscricaoEstadualDestinatarioEnum.CONTRIBUINTE));
         assertTrue(listAll.contains(NFeIndicadorInscricaoEstadualDestinatarioEnum.ISENTO));
         assertTrue(listAll.contains(NFeIndicadorInscricaoEstadualDestinatarioEnum.NAO_CONTRIBUINTE));

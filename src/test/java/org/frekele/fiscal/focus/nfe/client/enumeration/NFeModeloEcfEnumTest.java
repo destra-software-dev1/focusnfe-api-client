@@ -38,7 +38,8 @@ public class NFeModeloEcfEnumTest {
     public void testGetAll() throws Exception {
         List<NFeModeloEcfEnum> listAll = NFeModeloEcfEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 3);
+        assertEquals(listAll.size(), 4);
+        assertTrue(listAll.contains(NFeModeloEcfEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeModeloEcfEnum.CUPOM_FISCAL_EMITIDO_POR_MAQUINA_REGISTRADORA_NAO_ECF));
         assertTrue(listAll.contains(NFeModeloEcfEnum.CUPOM_FISCAL_PDV));
         assertTrue(listAll.contains(NFeModeloEcfEnum.CUPOM_FISCAL_EMITIDO_ECF));

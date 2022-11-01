@@ -44,7 +44,8 @@ public class NFeCodigoRegimeEspecialTributacaoEnumTest {
     public void testGetAll() throws Exception {
         List<NFeCodigoRegimeEspecialTributacaoEnum> listAll = NFeCodigoRegimeEspecialTributacaoEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 6);
+        assertEquals(listAll.size(), 7);
+        assertTrue(listAll.contains(NFeCodigoRegimeEspecialTributacaoEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeCodigoRegimeEspecialTributacaoEnum.MICROEMPRESA_MUNICIPAL));
         assertTrue(listAll.contains(NFeCodigoRegimeEspecialTributacaoEnum.ESTIMATIVA));
         assertTrue(listAll.contains(NFeCodigoRegimeEspecialTributacaoEnum.SOCIEDADE_DE_PROFISSIONAIS));

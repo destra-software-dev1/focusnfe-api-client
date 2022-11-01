@@ -50,7 +50,8 @@ public class NFeIcmsOrigemEnumTest {
     public void testGetAll() throws Exception {
         List<NFeIcmsOrigemEnum> listAll = NFeIcmsOrigemEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 9);
+        assertEquals(listAll.size(), 10);
+        assertTrue(listAll.contains(NFeIcmsOrigemEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeIcmsOrigemEnum.NACIONAL));
         assertTrue(listAll.contains(NFeIcmsOrigemEnum.ESTRANGEIRO_IMPORTACAO_DIRETA));
         assertTrue(listAll.contains(NFeIcmsOrigemEnum.ESTRANGEIRO_ADQUIRIDO_NO_MERCADO_INTERIOR));

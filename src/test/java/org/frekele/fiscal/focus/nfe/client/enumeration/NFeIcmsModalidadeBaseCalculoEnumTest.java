@@ -40,7 +40,8 @@ public class NFeIcmsModalidadeBaseCalculoEnumTest {
     public void testGetAll() throws Exception {
         List<NFeIcmsModalidadeBaseCalculoEnum> listAll = NFeIcmsModalidadeBaseCalculoEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 4);
+        assertEquals(listAll.size(), 5);
+        assertTrue(listAll.contains(NFeIcmsModalidadeBaseCalculoEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeIcmsModalidadeBaseCalculoEnum.MARGEM_DE_VALOR_AGREGADO));
         assertTrue(listAll.contains(NFeIcmsModalidadeBaseCalculoEnum.PAUTA));
         assertTrue(listAll.contains(NFeIcmsModalidadeBaseCalculoEnum.PRECO_TABELADO_MAXIMO));

@@ -46,7 +46,8 @@ public class NFeIssqnIndicadorExigibilidadeEnumTest {
     public void testGetAll() throws Exception {
         List<NFeIssqnIndicadorExigibilidadeEnum> listAll = NFeIssqnIndicadorExigibilidadeEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 7);
+        assertEquals(listAll.size(), 8);
+        assertTrue(listAll.contains(NFeIssqnIndicadorExigibilidadeEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeIssqnIndicadorExigibilidadeEnum.EXIGIVEL));
         assertTrue(listAll.contains(NFeIssqnIndicadorExigibilidadeEnum.NAO_INCIDENCIA));
         assertTrue(listAll.contains(NFeIssqnIndicadorExigibilidadeEnum.ISENCAO));

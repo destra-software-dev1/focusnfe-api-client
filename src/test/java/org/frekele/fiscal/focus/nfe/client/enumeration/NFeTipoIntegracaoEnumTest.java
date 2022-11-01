@@ -36,7 +36,8 @@ public class NFeTipoIntegracaoEnumTest {
     public void testGetAll() throws Exception {
         List<NFeTipoIntegracaoEnum> listAll = NFeTipoIntegracaoEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 2);
+        assertEquals(listAll.size(), 3);
+        assertTrue(listAll.contains(NFeTipoIntegracaoEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeTipoIntegracaoEnum.PAGAMENTO_INTEGRADO_COM_SISTEMA_DE_AUTOMACAO));
         assertTrue(listAll.contains(NFeTipoIntegracaoEnum.PAGAMENTO_NAO_INTEGRADO_COM_SISTEMA_DE_AUTOMACAO));
     }

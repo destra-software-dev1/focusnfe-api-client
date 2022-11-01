@@ -38,7 +38,8 @@ public class NFeFormaIntermedioEnumTest {
     public void testGetAll() throws Exception {
         List<NFeFormaIntermedioEnum> listAll = NFeFormaIntermedioEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 3);
+        assertEquals(listAll.size(), 4);
+        assertTrue(listAll.contains(NFeFormaIntermedioEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeFormaIntermedioEnum.IMPORTACAO_POR_CONTA_PROPRIA));
         assertTrue(listAll.contains(NFeFormaIntermedioEnum.IMPORTACAO_POR_CONTA_E_ORDEM));
         assertTrue(listAll.contains(NFeFormaIntermedioEnum.IMPORTACAO_POR_ENCOMENDA));

@@ -44,7 +44,8 @@ public class NFeVeiculoTipoCombustivelEnumTest {
     public void testGetAll() throws Exception {
         List<NFeVeiculoTipoCombustivelEnum> listAll = NFeVeiculoTipoCombustivelEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 6);
+        assertEquals(listAll.size(), 7);
+        assertTrue(listAll.contains(NFeVeiculoTipoCombustivelEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeVeiculoTipoCombustivelEnum.ALCOOL));
         assertTrue(listAll.contains(NFeVeiculoTipoCombustivelEnum.GASOLINA));
         assertTrue(listAll.contains(NFeVeiculoTipoCombustivelEnum.DIESEL));

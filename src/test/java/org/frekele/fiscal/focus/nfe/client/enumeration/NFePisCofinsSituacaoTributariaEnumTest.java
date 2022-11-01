@@ -98,7 +98,8 @@ public class NFePisCofinsSituacaoTributariaEnumTest {
     public void testGetAll() throws Exception {
         List<NFePisCofinsSituacaoTributariaEnum> listAll = NFePisCofinsSituacaoTributariaEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 33);
+        assertEquals(listAll.size(), 34);
+        assertTrue(listAll.contains(NFePisCofinsSituacaoTributariaEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFePisCofinsSituacaoTributariaEnum.OPERACAO_TRIBUTAVEL_BASE_CALCULO_VALOR_OPERACAO_ALIQUOTA_NORMAL_MENOS_CUMULATIVA_NAO_CUMULATIVA));
         assertTrue(listAll.contains(NFePisCofinsSituacaoTributariaEnum.OPERACAO_TRIBUTAVEL_BASE_CALCULO_VALOR_OPERACAO_ALIQUOTA_DIFERENCIADA));
         assertTrue(listAll.contains(NFePisCofinsSituacaoTributariaEnum.OPERACAO_TRIBUTAVEL_BASE_CALCULO_QUANTIDADE_VENDIDA_X_ALIQUOTA_POR_UND_PRODUTO));

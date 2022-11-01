@@ -36,7 +36,8 @@ public class NFeVeiculoVinEnumTest {
     public void testGetAll() throws Exception {
         List<NFeVeiculoVinEnum> listAll = NFeVeiculoVinEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 2);
+        assertEquals(listAll.size(), 3);
+        assertTrue(listAll.contains(NFeVeiculoVinEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeVeiculoVinEnum.REMARCADO));
         assertTrue(listAll.contains(NFeVeiculoVinEnum.NORMAL));
     }

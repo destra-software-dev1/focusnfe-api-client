@@ -60,8 +60,8 @@ public class NFeIpiSituacaoTributariaEnumTest {
     public void testGetAll() throws Exception {
         List<NFeIpiSituacaoTributariaEnum> listAll = NFeIpiSituacaoTributariaEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 14);
-        assertTrue(listAll.contains(NFeIpiSituacaoTributariaEnum.ENTRADA_COM_RECUPERACAO_DE_CREDITO));
+        assertEquals(listAll.size(), 15);
+        assertTrue(listAll.contains(NFeIpiSituacaoTributariaEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeIpiSituacaoTributariaEnum.ENTRADA_TRIBUTADA_COM_ALIQUODTA_ZERO));
         assertTrue(listAll.contains(NFeIpiSituacaoTributariaEnum.ENTRADA_ISENTA));
         assertTrue(listAll.contains(NFeIpiSituacaoTributariaEnum.ENTRADA_NAO_TRIBUTADA));

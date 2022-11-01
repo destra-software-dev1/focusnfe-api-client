@@ -38,7 +38,8 @@ public class NFeVeiculoCondicaoEnumTest {
     public void testGetAll() throws Exception {
         List<NFeVeiculoCondicaoEnum> listAll = NFeVeiculoCondicaoEnum.getAll();
         assertNotNull(listAll);
-        assertEquals(listAll.size(), 3);
+        assertEquals(listAll.size(), 4);
+        assertTrue(listAll.contains(NFeVeiculoCondicaoEnum.NAO_APLICAVEL));
         assertTrue(listAll.contains(NFeVeiculoCondicaoEnum.ACABADO));
         assertTrue(listAll.contains(NFeVeiculoCondicaoEnum.INACABADO));
         assertTrue(listAll.contains(NFeVeiculoCondicaoEnum.SEMI_ACABADO));
