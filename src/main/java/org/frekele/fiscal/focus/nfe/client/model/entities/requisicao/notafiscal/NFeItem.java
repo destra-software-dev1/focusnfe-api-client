@@ -4,22 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsModalidadeBaseCalculoEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsModalidadeBaseCalculoStEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsMotivoDesoneracaoEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsOrigemEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIcmsSituacaoTributariaEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIncluiNoTotalEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIpiSituacaoTributariaEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIssqnIndicadorExigibilidadeEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFePisCofinsSituacaoTributariaEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoCodigoCorDenatranEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoCondicaoEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoRestricaoEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoTipoCombustivelEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoTipoOperacaoEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeVeiculoVinEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.*;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
@@ -235,6 +220,7 @@ public class NFeItem implements FocusNFeEntity {
      */
     @JsonProperty("inclui_no_total")
     private NFeIncluiNoTotalEnum incluiNoTotal;
+
 
     /**
      * Documentos de importação.
@@ -777,6 +763,7 @@ public class NFeItem implements FocusNFeEntity {
     @JsonProperty("icms_percentual_diferimento")
     private BigDecimal icmsPercentualDiferimento;
 
+
     /**
      * (CST=51) Valor do ICMS diferido (informar o valor realmente devido no campo icms_valor).
      */
@@ -784,6 +771,76 @@ public class NFeItem implements FocusNFeEntity {
     @BigDecimalJsonConverter
     @JsonProperty("icms_valor_diferido")
     private BigDecimal icmsValorDiferido;
+
+
+    @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
+    @JsonProperty("icms_fcp_percentual_diferimento")
+    private BigDecimal icmsFcpPercentualDiferimento;
+
+    @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
+    @JsonProperty("icms_fcp_valor_diferido")
+    private BigDecimal icmsFcpValorDiferido;
+
+    @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
+    @JsonProperty("icms_fcp_valor_efetivo")
+    private BigDecimal icmsFcpValorEfetivo;
+
+    @JsonProperty("inclui_pis_st_no_total")
+    private NFeIncluiNoTotalEnum incluiPisStNoTotal;
+
+    @JsonProperty("inclui_cofins_st_no_total")
+    private NFeIncluiNoTotalEnum incluiCofinsStNoTotal;
+
+    @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
+    @JsonProperty("icms_valor_icms_st_desonerado")
+    private BigDecimal icmsValorIcmsStDesonerado;
+
+    @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
+    @JsonProperty("icms_base_calculo_operacao_propria")
+    private BigDecimal icmsBaseCalculoOperacaoPropria;
+
+    @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
+    @JsonProperty("icms_base_calculo_retido_remetente")
+    private BigDecimal icmsBaseCalculoRetidoRemetente;
+
+    @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
+    @JsonProperty("icms_base_calculo_destino")
+    private BigDecimal icmsBaseCalculoDestino;
+
+    @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
+    @JsonProperty("icms_reducao_base_calculo_efetiva")
+    private BigDecimal icmsReducaoBaseCalculoEfetiva;
+
+    @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
+    @JsonProperty("icms_base_calculo_efetiva")
+    private BigDecimal icmsBaseCalculoEfetiva;
+
+    @Digits(integer = 3, fraction = 4)
+    @BigDecimalJsonConverter
+    @JsonProperty("icms_aliquota_efetiva")
+    private BigDecimal icmsAliquotaEfetiva;
+
+    @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
+    @JsonProperty("icms_valor_efetivo")
+    private BigDecimal icmsValorEfetivo;
+
+    @Digits(integer = 13, fraction = 2)
+    @BigDecimalJsonConverter
+    @JsonProperty("icms_valor_destino")
+    private BigDecimal icmsValorDestino;
+
+    @JsonProperty("icms_motivo_desoneracao_icms_st")
+    private NFeIcmsMotivoDesoneracaoIcmsStEnum icmsMotivoDesoneracaoIcmsSt;
 
     /**
      * Motivo da desoneração do ICMS.
@@ -1469,11 +1526,148 @@ public class NFeItem implements FocusNFeEntity {
         setIcmsValorUfRemetente(builder.icmsValorUfRemetente);
         setPercentualDevolvido(builder.percentualDevolvido);
         setValorIpiDevolvido(builder.valorIpiDevolvido);
+        setIcmsFcpPercentualDiferimento(builder.icmsFcpPercentualDiferimento);
+        setIcmsFcpValorDiferido(builder.icmsFcpValorDiferido);
+        setIcmsFcpValorEfetivo(builder.icmsFcpValorEfetivo);
+        setIncluiPisStNoTotal(builder.incluiPisStNoTotal);
+        setIncluiCofinsStNoTotal(builder.incluiCofinsStNoTotal);
+        setIcmsValorIcmsStDesonerado(builder.icmsValorIcmsStDesonerado);
+        setIcmsBaseCalculoOperacaoPropria(builder.icmsBaseCalculoOperacaoPropria);
+        setIcmsBaseCalculoRetidoRemetente(builder.icmsBaseCalculoRetidoRemetente);
+        setIcmsBaseCalculoDestino(builder.icmsBaseCalculoDestino);
+        setIcmsReducaoBaseCalculoEfetiva(builder.icmsReducaoBaseCalculoEfetiva);
+        setIcmsBaseCalculoEfetiva(builder.icmsBaseCalculoEfetiva);
+        setIcmsAliquotaEfetiva(builder.icmsAliquotaEfetiva);
+        setIcmsValorEfetivo(builder.icmsValorEfetivo);
+        setIcmsValorDestino(builder.icmsValorDestino);
+        setIcmsMotivoDesoneracaoIcmsSt(builder.icmsMotivoDesoneracaoIcmsSt);
         setInformacoesAdicionaisItem(builder.informacoesAdicionaisItem);
     }
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public void setIncluiPisStNoTotal(NFeIncluiNoTotalEnum incluiPisStNoTotal) {
+        this.incluiPisStNoTotal = incluiPisStNoTotal;
+    }
+
+    public void setIncluiCofinsStNoTotal(NFeIncluiNoTotalEnum incluiCofinsStNoTotal) {
+        this.incluiCofinsStNoTotal = incluiCofinsStNoTotal;
+    }
+
+    public BigDecimal getIcmsBaseCalculoOperacaoPropria() {
+        return icmsBaseCalculoOperacaoPropria;
+    }
+
+    public void setIcmsBaseCalculoOperacaoPropria(BigDecimal icmsBaseCalculoOperacaoPropria) {
+        this.icmsBaseCalculoOperacaoPropria = icmsBaseCalculoOperacaoPropria;
+    }
+
+    public void setIcmsValorIcmsStDesonerado(BigDecimal icmsValorIcmsStDesonerado) {
+        this.icmsValorIcmsStDesonerado = icmsValorIcmsStDesonerado;
+    }
+
+
+    public void setIcmsBaseCalculoRetidoRemetente(BigDecimal icmsBaseCalculoRetidoRemetente) {
+        this.icmsBaseCalculoRetidoRemetente = icmsBaseCalculoRetidoRemetente;
+    }
+
+    public void setIcmsBaseCalculoDestino(BigDecimal icmsBaseCalculoDestino) {
+        this.icmsBaseCalculoDestino = icmsBaseCalculoDestino;
+    }
+
+    public void setIcmsReducaoBaseCalculoEfetiva(BigDecimal icmsReducaoBaseCalculoEfetiva) {
+        this.icmsReducaoBaseCalculoEfetiva = icmsReducaoBaseCalculoEfetiva;
+    }
+
+    public void setIcmsBaseCalculoEfetiva(BigDecimal icmsBaseCalculoEfetiva) {
+        this.icmsBaseCalculoEfetiva = icmsBaseCalculoEfetiva;
+    }
+
+    public void setIcmsAliquotaEfetiva(BigDecimal icmsAliquotaEfetiva) {
+        this.icmsAliquotaEfetiva = icmsAliquotaEfetiva;
+    }
+
+    public void setIcmsValorEfetivo(BigDecimal icmsValorEfetivo) {
+        this.icmsValorEfetivo = icmsValorEfetivo;
+    }
+
+    public void setIcmsValorDestino(BigDecimal icmsValorDestino) {
+        this.icmsValorDestino = icmsValorDestino;
+    }
+
+    public void setIcmsMotivoDesoneracaoIcmsSt(NFeIcmsMotivoDesoneracaoIcmsStEnum icmsMotivoDesoneracaoIcmsSt) {
+        this.icmsMotivoDesoneracaoIcmsSt = icmsMotivoDesoneracaoIcmsSt;
+    }
+
+    public BigDecimal getIcmsFcpPercentualDiferimento() {
+        return icmsFcpPercentualDiferimento;
+    }
+
+    public void setIcmsFcpPercentualDiferimento(BigDecimal icmsFcpPercentualDiferimento) {
+        this.icmsFcpPercentualDiferimento = icmsFcpPercentualDiferimento;
+    }
+
+    public BigDecimal getIcmsFcpValorDiferido() {
+        return icmsFcpValorDiferido;
+    }
+
+    public void setIcmsFcpValorDiferido(BigDecimal icmsFcpValorDiferido) {
+        this.icmsFcpValorDiferido = icmsFcpValorDiferido;
+    }
+
+    public BigDecimal getIcmsFcpValorEfetivo() {
+        return icmsFcpValorEfetivo;
+    }
+
+    public void setIcmsFcpValorEfetivo(BigDecimal icmsFcpValorEfetivo) {
+        this.icmsFcpValorEfetivo = icmsFcpValorEfetivo;
+    }
+
+    public NFeIncluiNoTotalEnum getIncluiPisStNoTotal() {
+        return incluiPisStNoTotal;
+    }
+
+    public NFeIncluiNoTotalEnum getIncluiCofinsStNoTotal() {
+        return incluiCofinsStNoTotal;
+    }
+
+    public BigDecimal getIcmsValorIcmsStDesonerado() {
+        return icmsValorIcmsStDesonerado;
+    }
+
+
+    public BigDecimal getIcmsBaseCalculoRetidoRemetente() {
+        return icmsBaseCalculoRetidoRemetente;
+    }
+
+    public BigDecimal getIcmsBaseCalculoDestino() {
+        return icmsBaseCalculoDestino;
+    }
+
+    public BigDecimal getIcmsReducaoBaseCalculoEfetiva() {
+        return icmsReducaoBaseCalculoEfetiva;
+    }
+
+    public BigDecimal getIcmsBaseCalculoEfetiva() {
+        return icmsBaseCalculoEfetiva;
+    }
+
+    public BigDecimal getIcmsAliquotaEfetiva() {
+        return icmsAliquotaEfetiva;
+    }
+
+    public BigDecimal getIcmsValorEfetivo() {
+        return icmsValorEfetivo;
+    }
+
+    public BigDecimal getIcmsValorDestino() {
+        return icmsValorDestino;
+    }
+
+    public NFeIcmsMotivoDesoneracaoIcmsStEnum getIcmsMotivoDesoneracaoIcmsSt() {
+        return icmsMotivoDesoneracaoIcmsSt;
     }
 
     /**
@@ -3895,6 +4089,36 @@ public class NFeItem implements FocusNFeEntity {
 
         private String pedidoCompra;
 
+        private BigDecimal icmsFcpPercentualDiferimento;
+
+        private BigDecimal icmsFcpValorDiferido;
+
+        private BigDecimal icmsFcpValorEfetivo;
+
+        private NFeIncluiNoTotalEnum incluiPisStNoTotal;
+
+        private NFeIncluiNoTotalEnum incluiCofinsStNoTotal;
+
+        private BigDecimal icmsValorIcmsStDesonerado;
+
+        private BigDecimal icmsBaseCalculoOperacaoPropria;
+
+        private BigDecimal icmsBaseCalculoRetidoRemetente;
+
+        private BigDecimal icmsBaseCalculoDestino;
+
+        private BigDecimal icmsReducaoBaseCalculoEfetiva;
+
+        private BigDecimal icmsBaseCalculoEfetiva;
+
+        private BigDecimal icmsAliquotaEfetiva;
+
+        private BigDecimal icmsValorEfetivo;
+
+        private BigDecimal icmsValorDestino;
+
+        private NFeIcmsMotivoDesoneracaoIcmsStEnum icmsMotivoDesoneracaoIcmsSt;
+
         private String numeroItemPedidoCompra;
 
         private String numeroFci;
@@ -4227,6 +4451,71 @@ public class NFeItem implements FocusNFeEntity {
             return this;
         }
 
+        public Builder withIcmsValorIcmsStDesonerado(BigDecimal val) {
+            icmsValorIcmsStDesonerado = val;
+            return this;
+        }
+
+        public Builder withIcmsBaseCalculoOperacaoPropria(BigDecimal val) {
+            icmsBaseCalculoOperacaoPropria = val;
+            return this;
+        }
+
+        public Builder withIcmsBaseCalculoRetidoRemetente(BigDecimal val) {
+            icmsBaseCalculoRetidoRemetente = val;
+            return this;
+        }
+
+        public Builder withIcmsBaseCalculoDestino(BigDecimal val) {
+            icmsBaseCalculoDestino = val;
+            return this;
+        }
+
+        public Builder withIcmsValorDestino(BigDecimal val) {
+            icmsValorDestino = val;
+            return this;
+        }
+
+        public Builder withIcmsReducaoBaseCalculoEfetiva(BigDecimal val) {
+            icmsReducaoBaseCalculoEfetiva = val;
+            return this;
+        }
+
+        public Builder withIcmsBaseCalculoEfetiva(BigDecimal val) {
+            icmsBaseCalculoEfetiva = val;
+            return this;
+        }
+
+        public Builder withIcmsAliquotaEfetiva(BigDecimal val) {
+            icmsAliquotaEfetiva = val;
+            return this;
+        }
+
+        public Builder withIcmsValorEfetivo(BigDecimal val) {
+            icmsValorEfetivo = val;
+            return this;
+        }
+
+        public Builder withIcmsFcpPercentualDiferimento(BigDecimal val) {
+            icmsFcpPercentualDiferimento = val;
+            return this;
+        }
+
+        public Builder withIcmsFcpValorDiferido(BigDecimal val) {
+            icmsFcpValorDiferido = val;
+            return this;
+        }
+
+        public Builder withIcmsFcpValorEfetivo(BigDecimal val) {
+            icmsFcpValorEfetivo = val;
+            return this;
+        }
+
+        public Builder withIcmsMotivoDesoneracaoIcmsSt(NFeIcmsMotivoDesoneracaoIcmsStEnum val) {
+            icmsMotivoDesoneracaoIcmsSt = val;
+            return this;
+        }
+
         /**
          * Código Especificador da Substituição Tributária – CEST, que identifica a mercadoria sujeita aos regimes de substituicao tributária e de antecipação do recolhimento do imposto.
          * Obrigatório para produto em que incide Substituição Tributária (ICMS-ST)
@@ -4378,6 +4667,16 @@ public class NFeItem implements FocusNFeEntity {
          */
         public Builder withIncluiNoTotal(NFeIncluiNoTotalEnum val) {
             incluiNoTotal = val;
+            return this;
+        }
+
+        public Builder withIncluiPisStNoTotal(NFeIncluiNoTotalEnum val) {
+            incluiPisStNoTotal = val;
+            return this;
+        }
+
+        public Builder withIncluiCofinsStNoTotal(NFeIncluiNoTotalEnum val) {
+            incluiCofinsStNoTotal = val;
             return this;
         }
 

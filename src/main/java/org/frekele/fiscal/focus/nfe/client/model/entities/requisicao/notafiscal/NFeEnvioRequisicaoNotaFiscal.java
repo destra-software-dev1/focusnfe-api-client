@@ -6,16 +6,7 @@ import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.converter.LocalDateJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.converter.OffsetDateTimeJsonConverter;
 import org.frekele.fiscal.focus.nfe.client.core.FocusNFeEntity;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeCodigoRegimeEspecialTributacaoEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeConsumidorFinalEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeFinalidadeEmissaoEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeIndicadorInscricaoEstadualDestinatarioEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeLocalDestinoEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeModalidadeFreteEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFePresencaCompradorEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeRegimeTributarioEmitenteEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeTipoDocumentoEnum;
-import org.frekele.fiscal.focus.nfe.client.enumeration.NFeUnidadeFederativaEnum;
+import org.frekele.fiscal.focus.nfe.client.enumeration.*;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
@@ -114,6 +105,23 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
     @NotNull
     @JsonProperty("presenca_comprador")
     private NFePresencaCompradorEnum presencaComprador;
+
+    /**
+     * UF do destinatário. Deve ser omitido em operações com o exterior.
+     */
+    @NotNull
+    @JsonProperty("indicador_intermediario ")
+    private NFeIndicadorIntermediarioEnum indicadorIntermediario;
+
+    @NotNull
+    @Size(max = 14)
+    @JsonProperty("cnpj_intermediario")
+    private String cnpjIntermediario;
+
+    @NotNull
+    @Size(min = 2, max = 60)
+    @JsonProperty("id_intermediario")
+    private String idIntermediario;
 
     /**
      * Notas referenciadas.
@@ -443,6 +451,26 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
     @JsonProperty("logradouro_retirada")
     private String logradouroRetirada;
 
+    @Size(max = 8)
+    @JsonProperty("cep_retirada")
+    private String cepRetirada;
+
+    @Size(min = 6, max = 14)
+    @JsonProperty("telefone_retirada")
+    private String telefoneRetirada;
+
+    @Size(min = 1, max = 60)
+    @JsonProperty("email_retirada")
+    private String emailRetirada;
+
+    @Size(min = 2, max = 14)
+    @JsonProperty("inscricao_estadual_retirada")
+    private String inscricaoEstadualRetirada;
+
+    @Size(min = 2, max = 60)
+    @JsonProperty("nome_retirada")
+    private String nomeRetirada;
+
     /**
      * Número do local de retirada. (Informar apenas quando o local de retirada for diferente do destinatário.)
      */
@@ -494,6 +522,26 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
     @Size(max = 14)
     @JsonProperty("cnpj_entrega")
     private String cnpjEntrega;
+
+    @Size(max = 8)
+    @JsonProperty("cep_entrega")
+    private String cepEntrega;
+
+    @Size(min = 6, max = 14)
+    @JsonProperty("telefone_entrega")
+    private String telefoneEntrega;
+
+    @Size(min = 1, max = 60)
+    @JsonProperty("email_entrega")
+    private String emailEntrega;
+
+    @Size(min = 2, max = 14)
+    @JsonProperty("inscricao_estadual_entrega")
+    private String inscricaoEstadualEntrega;
+
+    @Size(min = 2, max = 60)
+    @JsonProperty("nome_entrega")
+    private String nomeEntrega;
 
     /**
      * CPF do local de entrega. (Informar apenas quando o local de entrega for diferente do destinatário.)
@@ -1142,6 +1190,9 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
         setConsumidorFinal(builder.consumidorFinal);
         setPresencaComprador(builder.presencaComprador);
         setNotasReferenciadas(builder.notasReferenciadas);
+        setIndicadorIntermediario(builder.indicadorIntermediario);
+        setCnpjIntermediario(builder.cnpjIntermediario);
+        setIdIntermediario(builder.idIntermediario);
         setCnpjEmitente(builder.cnpjEmitente);
         setNomeEmitente(builder.nomeEmitente);
         setNomeFantasiaEmitente(builder.nomeFantasiaEmitente);
@@ -1184,6 +1235,16 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
         setCnpjRetirada(builder.cnpjRetirada);
         setCpfRetirada(builder.cpfRetirada);
         setLogradouroRetirada(builder.logradouroRetirada);
+        setNomeRetirada(builder.nomeRetirada);
+        setCepRetirada(builder.cepRetirada);
+        setTelefoneRetirada(builder.telefoneRetirada);
+        setEmailRetirada(builder.emailRetirada);
+        setInscricaoEstadualRetirada(builder.inscricaoEstadualRetirada);
+        setNomeEntrega(builder.nomeEntrega);
+        setCepEntrega(builder.cepEntrega);
+        setTelefoneEntrega(builder.telefoneEntrega);
+        setEmailEntrega(builder.emailEntrega);
+        setInscricaoEstadualEntrega(builder.inscricaoEstadualEntrega);
         setNumeroRetirada(builder.numeroRetirada);
         setComplementoRetirada(builder.complementoRetirada);
         setBairroRetirada(builder.bairroRetirada);
@@ -1688,6 +1749,102 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
         return cnaeFiscalEmitente;
     }
 
+    public NFeIndicadorIntermediarioEnum getIndicadorIntermediario() {
+        return indicadorIntermediario;
+    }
+
+    public void setIndicadorIntermediario(NFeIndicadorIntermediarioEnum indicadorIntermediario) {
+        this.indicadorIntermediario = indicadorIntermediario;
+    }
+
+    public String getCnpjIntermediario() {
+        return cnpjIntermediario;
+    }
+
+    public void setCnpjIntermediario(String cnpjIntermediario) {
+        this.cnpjIntermediario = cnpjIntermediario;
+    }
+
+    public String getIdIntermediario() {
+        return idIntermediario;
+    }
+
+    public void setIdIntermediario(String idIntermediario) {
+        this.idIntermediario = idIntermediario;
+    }
+
+    public String getCepRetirada() {
+        return cepRetirada;
+    }
+
+    public void setCepRetirada(String cepRetirada) {
+        this.cepRetirada = cepRetirada;
+    }
+
+    public String getTelefoneRetirada() {
+        return telefoneRetirada;
+    }
+
+    public void setTelefoneRetirada(String telefoneRetirada) {
+        this.telefoneRetirada = telefoneRetirada;
+    }
+
+    public String getEmailRetirada() {
+        return emailRetirada;
+    }
+
+    public void setEmailRetirada(String emailRetirada) {
+        this.emailRetirada = emailRetirada;
+    }
+
+    public String getInscricaoEstadualRetirada() {
+        return inscricaoEstadualRetirada;
+    }
+
+    public void setInscricaoEstadualRetirada(String inscricaoEstadualRetirada) {
+        this.inscricaoEstadualRetirada = inscricaoEstadualRetirada;
+    }
+
+    public String getCepEntrega() {
+        return cepEntrega;
+    }
+
+    public void setCepEntrega(String cepEntrega) {
+        this.cepEntrega = cepEntrega;
+    }
+
+    public String getTelefoneEntrega() {
+        return telefoneEntrega;
+    }
+
+    public void setTelefoneEntrega(String telefoneEntrega) {
+        this.telefoneEntrega = telefoneEntrega;
+    }
+
+    public String getEmailEntrega() {
+        return emailEntrega;
+    }
+
+    public void setEmailEntrega(String emailEntrega) {
+        this.emailEntrega = emailEntrega;
+    }
+
+    public String getInscricaoEstadualEntrega() {
+        return inscricaoEstadualEntrega;
+    }
+
+    public void setInscricaoEstadualEntrega(String inscricaoEstadualEntrega) {
+        this.inscricaoEstadualEntrega = inscricaoEstadualEntrega;
+    }
+
+    public String getNomeEntrega() {
+        return nomeEntrega;
+    }
+
+    public void setNomeEntrega(String nomeEntrega) {
+        this.nomeEntrega = nomeEntrega;
+    }
+
     /**
      * CNAE Fiscal da empresa emitente. Se este campo for informado também deverá ser informada a Inscrição Municipal do emitente.
      */
@@ -2028,6 +2185,14 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
      */
     public String getLogradouroRetirada() {
         return logradouroRetirada;
+    }
+
+    public String getNomeRetirada() {
+        return nomeRetirada;
+    }
+
+    public void setNomeRetirada(String nomeRetirada) {
+        this.nomeRetirada = nomeRetirada;
     }
 
     /**
@@ -3348,6 +3513,32 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
 
         private String cnpjEmitente;
 
+        private NFeIndicadorIntermediarioEnum indicadorIntermediario;
+
+        private String idIntermediario;
+
+        private String cnpjIntermediario;
+
+        private String nomeRetirada;
+
+        private String cepRetirada;
+
+        private String telefoneRetirada;
+
+        private String emailRetirada;
+
+        private String inscricaoEstadualRetirada;
+
+        private String nomeEntrega;
+
+        private String cepEntrega;
+
+        private String telefoneEntrega;
+
+        private String emailEntrega;
+
+        private String inscricaoEstadualEntrega;
+
         private String nomeEmitente;
 
         private String nomeFantasiaEmitente;
@@ -3988,6 +4179,11 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
             return this;
         }
 
+        public Builder withIndicadorIntermediario(NFeIndicadorIntermediarioEnum val) {
+            indicadorIntermediario = val;
+            return this;
+        }
+
         /**
          * Informar a Inscrição Estadual do destinatário.
          */
@@ -4030,6 +4226,31 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
             return this;
         }
 
+        public Builder withCepRetirada(String val) {
+            cepRetirada = val;
+            return this;
+        }
+
+        public Builder withTelefoneRetirada(String val) {
+            telefoneRetirada = val;
+            return this;
+        }
+
+        public Builder withEmailRetirada(String val) {
+            emailRetirada = val;
+            return this;
+        }
+
+        public Builder withInscricaoEstadualRetirada(String val) {
+            inscricaoEstadualRetirada = val;
+            return this;
+        }
+
+        public Builder withNomeRetirada(String val) {
+            nomeRetirada = val;
+            return this;
+        }
+
         /**
          * CPF do local de retirada. (Informar apenas quando o local de retirada for diferente do destinatário.)
          */
@@ -4045,6 +4266,8 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
             logradouroRetirada = val;
             return this;
         }
+
+
 
         /**
          * Número do local de retirada. (Informar apenas quando o local de retirada for diferente do destinatário.)
@@ -4091,6 +4314,41 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
          */
         public Builder withUfRetirada(NFeUnidadeFederativaEnum val) {
             ufRetirada = val;
+            return this;
+        }
+
+        public Builder withCepEntrega(String val) {
+            cepEntrega = val;
+            return this;
+        }
+
+        public Builder withTelefoneEntrega(String val) {
+            telefoneEntrega = val;
+            return this;
+        }
+
+        public Builder withEmailEntrega(String val) {
+            emailEntrega = val;
+            return this;
+        }
+
+        public Builder withInscricaoEstadualEntrega(String val) {
+            inscricaoEstadualEntrega = val;
+            return this;
+        }
+
+        public Builder withNomeEntrega(String val) {
+            nomeEntrega = val;
+            return this;
+        }
+
+        public Builder withCnpjIntermediario(String val) {
+            cnpjIntermediario = val;
+            return this;
+        }
+
+        public Builder withIdIntermediario(String val) {
+            idIntermediario = val;
             return this;
         }
 

@@ -32,7 +32,7 @@ import java.io.Serializable;
 @Path("/v2")
 @Produces({FocusMediaType.APPLICATION_JSON_CHARSET_UTF8})
 @Consumes({FocusMediaType.APPLICATION_JSON_CHARSET_UTF8})
-interface FocusNFeV2ProxyClient extends Serializable {
+public interface FocusNFeV2ProxyClient extends Serializable {
 
     /**
      * POST - Emitir NFe utilizando dados simplificados.
