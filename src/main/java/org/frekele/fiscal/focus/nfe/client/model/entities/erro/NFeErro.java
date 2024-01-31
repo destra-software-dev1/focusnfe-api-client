@@ -44,6 +44,9 @@ public class NFeErro implements FocusNFeEntity {
     @JsonProperty("mensagem")
     private String mensagem;
 
+    @JsonProperty("campo")
+    private String campo;
+
     /**
      * (Opcional) Quando for possível detalhar o erro, ele será informado nesta lista de objetos.
      */
@@ -57,6 +60,7 @@ public class NFeErro implements FocusNFeEntity {
     private NFeErro(Builder builder) {
         setCodigo(builder.codigo);
         setMensagem(builder.mensagem);
+        setCampo(builder.campo);
         setErros(builder.erros);
     }
 
@@ -93,6 +97,22 @@ public class NFeErro implements FocusNFeEntity {
     }
 
     /**
+     * A descrição mais detalhada do que ocorreu.
+     */
+    public String getCampo() {
+        return campo;
+    }
+
+    /**
+     * A descrição mais detalhada do que ocorreu.
+     */
+    public void setCampo(String campo) {
+        this.campo = campo;
+    }
+
+
+
+    /**
      * (Opcional) Quando for possível detalhar o erro, ele será informado nesta lista de objetos.
      */
     public List<NFeErro> getErros() {
@@ -121,6 +141,8 @@ public class NFeErro implements FocusNFeEntity {
          */
         private String mensagem;
 
+        private String campo;
+
         /**
          * (Opcional) Quando for possível detalhar o erro, ele será informado nesta lista de objetos.
          */
@@ -142,6 +164,10 @@ public class NFeErro implements FocusNFeEntity {
          */
         public Builder withMensagem(String val) {
             mensagem = val;
+            return this;
+        }
+        public Builder withCampo(String val) {
+            campo = val;
             return this;
         }
 

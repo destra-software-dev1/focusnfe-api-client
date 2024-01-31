@@ -1,5 +1,6 @@
 package org.frekele.fiscal.focus.nfe.client.model.entities.requisicao.notafiscal;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.frekele.fiscal.focus.nfe.client.converter.BigDecimalJsonConverter;
@@ -610,6 +611,7 @@ public class NFeEnvioRequisicaoNotaFiscal implements FocusNFeEntity {
      */
     @Size(max = 990)
     @JsonProperty("items")
+    @JsonAlias("itens")
     private List<NFeItem> items;
 
     /**
